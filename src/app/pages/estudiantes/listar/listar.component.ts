@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Estudiante } from '../../../modelos/estudiante.model';
 import { EstudiantesService } from '../../../servicios/estudiante.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-listar',
@@ -11,7 +12,7 @@ import { EstudiantesService } from '../../../servicios/estudiante.service';
 export class ListarComponent implements OnInit {
   estudiantes : Estudiante[];
   nombresColumnas: string[] = ['Cedula','Nombre','Apellido','Opciones'];
-  constructor(private miServicioEstudiantes: EstudiantesService) { }
+  constructor(private miServicioEstudiantes: EstudiantesService, private router: Router) { }
 
   ngOnInit(): void {
     this.listar();
@@ -23,10 +24,10 @@ export class ListarComponent implements OnInit {
       });
   }
   agregar():void{
-    console.log("agregando nuevo")
+    this.router.navigate(["pages/estudiantes/crear"]);
   }
   editar(id:string):void{
-    console.log("editando a "+id)
+    this.router.navigate(["pages/estudiantes/actualizar/"+id]);
   }
   eliminar(id:string):void{
     Swal.fire({

@@ -5,6 +5,7 @@ import { EstudiantesRoutingModule } from './estudiantes-routing.module';
 import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { NbCardModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NbCardModule } from '@nebular/theme';
   imports: [
     CommonModule,
     EstudiantesRoutingModule,
-    NbCardModule
+    NbCardModule,
+    FormsModule
   ]
 })
 export class EstudiantesModule { }

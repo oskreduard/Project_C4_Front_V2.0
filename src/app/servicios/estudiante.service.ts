@@ -17,4 +17,13 @@ export class EstudiantesService {
   eliminar(id:string){
   return this.http.delete<Estudiante>(`${environment.url_gateway}/estudiantes/${id}`,);
   }
+  getEstudiante(id: string): Observable<Estudiante> {
+    return this.http.get<Estudiante>(`${environment.url_gateway}/estudiantes/${id}`);
+  }
+  crear(elEstudiante: Estudiante) {
+    return this.http.post(`${environment.url_gateway}/estudiantes`, elEstudiante);
+  }
+  editar(id:string,elEstudiante: Estudiante) {
+    return this.http.put(`${environment.url_gateway}/estudiantes/${id}`, elEstudiante);
+  }
 }
